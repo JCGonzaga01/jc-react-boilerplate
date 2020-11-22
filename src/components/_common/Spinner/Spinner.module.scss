@@ -1,0 +1,52 @@
+$circle-size: 60px;
+$stroke-Width: 8px;
+$circle-stroke-color: #2f3d4c;
+
+.wrapper {
+  height: $circle-size;
+  margin-left: auto;
+  margin-right: auto;
+  width: $circle-size;
+
+  .container {
+    animation: container 2s linear infinite both;
+
+    .spinner {
+      animation: spinner 1.4s ease-in-out infinite both;
+      fill: transparent;
+      stroke: $circle-stroke-color;
+      stroke-dasharray: 285;
+      stroke-linecap: round;
+      stroke-width: $stroke-Width;
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+@keyframes container {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes spinner {
+  0%,
+  25% {
+    stroke-dashoffset: 280;
+    transform: rotate(0);
+  }
+
+  50%,
+  75% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(360deg);
+  }
+}

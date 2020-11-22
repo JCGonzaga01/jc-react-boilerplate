@@ -1,0 +1,14 @@
+node_modules
+
+.DS_Store
+yarn-debug.log*
+yarn-error.log*
+
+#firebase
+/src/firebaseConfig.ts
+.firebaserc
+firebase-debug.log
+.firebase
+
+#build
+/build

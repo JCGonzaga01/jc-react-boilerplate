@@ -1,0 +1,45 @@
+@import "helpers/stylings/_index";
+
+.wrapper {
+  position: fixed;
+  width: 100vw;
+  z-index: 99;
+
+  .container {
+    @include media-query(pc) {
+      padding: 10px 100px;
+    }
+
+    @include media-query(tl) {
+      padding: 10px 60px;
+    }
+
+    align-items: center;
+    background: #242a43;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+
+    .headerLogo {
+      cursor: pointer;
+      height: 60px;
+    }
+
+    .menu {
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      a {
+        color: $textDefault;
+        text-decoration: none;
+        transition: 0.25s ease-in-out;
+
+        &:hover {
+          color: $textDefaultHover;
+        }
+      }
+    }
+  }
+}
