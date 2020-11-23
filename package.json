@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
+    "prod-test": "node server",
     "build": "rimraf ./build && NODE_ENV=production && webpack --config ./webpack.prod.config.js -p",
     "deploy": "gh-pages -d build"
   },
