@@ -1,3 +1,6 @@
+// NOTE:
+// - Use this server.js file if you wish to add some configurations or
+// middlewares before running the project.
 const express = require("express");
 const path = require("path");
 
@@ -10,10 +13,10 @@ if (process.env.NODE_ENV !== "production") {
   app.use(WebpackDevMiddleware(webpack(webpackConfig)));
 } else {
   // This is for test running the build folder
-  // app.use(express.static("build"));
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "build/index.html"));
-  // });
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "build/index.html"));
+  });
 }
 
 app.listen(process.env.port || 8080, () => console.log("Listening"));

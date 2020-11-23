@@ -13,7 +13,11 @@ var config = {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[hash].min.js",
     publicPath: "/",
+    // To handle map files from rxjs
+    sourceMapFilename: "[name].js.map",
   },
+  // To remove warnings from map files
+  devtool: "eval-cheap-source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".scss"],
     modules: [path.resolve(__dirname, "src"), "node_modules"],
