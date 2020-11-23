@@ -1,7 +1,8 @@
 # Project Overview
 
-**JC-REACT-BOILERPLATE** is a boilerplate you can use when starting a React application.
-The template itself was structured based on the most commonly used libraries and architecture when developing React App.
+**JC-REACT-BOILERPLATE** is a template you can use when starting a React Application.
+The template itself was structured based on the most commonly used libraries and architecture when developing React Application.
+You can opt to use this template if you feel ReactJS [CRA](https://create-react-app.dev/) is too complicated for your project.
 
 ## Structure
 
