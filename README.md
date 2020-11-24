@@ -37,7 +37,7 @@ The boilerplate predefined some usefull mixins, custom hooks, && function:
 
 ## How to set up the project?
 
-You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes.
+You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes. But I highly suggest you fork this repo for monitoring.
 
 1.  To download the repository and install dependencies, run the following commands:
 
