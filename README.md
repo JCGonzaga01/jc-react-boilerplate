@@ -42,7 +42,7 @@ You may wish to fork this repository or remove my remote origin and add your own
 1.  To download the repository and install dependencies, run the following commands:
 
 ```bash
-git clone https://github.com/JCGonzaga01/info.git [YOUR_PREFERRED_REPO_NAME]
+git clone https://github.com/JCGonzaga01/jc-react-boilerplate.git [YOUR_PREFERRED_REPO_NAME]
 
 cd [YOUR_PREFERRED_REPO_NAME]
 
