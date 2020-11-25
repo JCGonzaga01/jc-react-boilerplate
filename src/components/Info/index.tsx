@@ -46,17 +46,19 @@ const Info: React.FC = () => {
       </div>
       <div className={styles.tableTitle}>Example of Redux Implementation</div>
 
-      <div className={styles.search}>
-        <form ref={formRef} onSubmit={handleOnClickSearch}>
-          <button className={styles.searchBtn} type={"submit"}>
-            SEARCH
-          </button>
-          <input className={styles.searchField} name={"searchField"} type={"text"} />
-        </form>
-      </div>
-      <div className={styles.emojiTableHeader}>
-        <div>NAME</div>
-        <div>IMAGE</div>
+      <div className={styles.tableHeader}>
+        <div className={styles.search}>
+          <form ref={formRef} onSubmit={handleOnClickSearch}>
+            <button className={styles.searchBtn} type={"submit"}>
+              SEARCH
+            </button>
+            <input className={styles.searchField} name={"searchField"} type={"text"} />
+          </form>
+        </div>
+        <div className={styles.emojiTableHeader}>
+          <div>NAME</div>
+          <div>IMAGE</div>
+        </div>
       </div>
       {isFetching ? (
         <Spinner />
