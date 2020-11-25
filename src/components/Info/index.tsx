@@ -1,33 +1,38 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// REDUX
-import { fetchDummyAsync } from "store/actions/dummy";
-import { dummy } from "store/selectors/dummy";
-//
 import { Spinner } from "components/_common";
 import { bannerDetails } from "constants/info";
 import banner from "assets/banner.jpg";
 import styles from "./Info.scss";
 
+type DummyType = {
+  key: string;
+  value: string;
+};
+
+type DummyList = Array<DummyType>;
+
 const Info: React.FC = () => {
   const formRef = useRef(null);
-  const dispatch = useDispatch();
-  const { payload, isFetching } = useSelector(dummy);
-  const [filterEmoji, setFilterEmoji] = useState(payload);
+  const [emojiList, setEmojiList] = useState<DummyList>([{ key: "", value: "" }]);
+  const [filterEmoji, setFilterEmoji] = useState<DummyList>([{ key: "", value: "" }]);
 
   useEffect(() => {
-    dispatch(fetchDummyAsync.request());
+    fetch("https://api.github.com/emojis").then(async (res) => {
+      const data: { [key: string]: string } = await res.json();
+      const dummyList: DummyList = [];
+      for (const [key, value] of Object.entries(data)) {
+        dummyList.push({ key: key.replaceAll("_", " ").toUpperCase(), value });
+      }
+      setEmojiList(dummyList);
+      setFilterEmoji(dummyList);
+    });
   }, []);
-
-  useEffect(() => {
-    setFilterEmoji(payload);
-  }, [payload]);
 
   const handleOnClickSearch = (e: FormEvent) => {
     e.preventDefault();
     const form: any = formRef.current;
     const fieldValue = form["searchField"].value;
-    const newFilterEmoji = [...payload].filter((item) =>
+    const newFilterEmoji = [...emojiList].filter((item) =>
       item.key.includes(fieldValue.toUpperCase())
     );
     setFilterEmoji(newFilterEmoji);
@@ -44,21 +49,23 @@ const Info: React.FC = () => {
         <div className={styles.title}>{bannerDetails.title}</div>
         <div className={styles.description}>{bannerDetails.description}</div>
       </div>
-      <div className={styles.tableTitle}>Example of Redux Implementation</div>
+      <div className={styles.tableTitle}>Example of FetchAPI Implementation</div>
 
-      <div className={styles.search}>
-        <form ref={formRef} onSubmit={handleOnClickSearch}>
-          <button className={styles.searchBtn} type={"submit"}>
-            SEARCH
-          </button>
-          <input className={styles.searchField} name={"searchField"} type={"text"} />
-        </form>
+      <div className={styles.tableHeader}>
+        <div className={styles.search}>
+          <form ref={formRef} onSubmit={handleOnClickSearch}>
+            <button className={styles.searchBtn} type={"submit"}>
+              SEARCH
+            </button>
+            <input className={styles.searchField} name={"searchField"} type={"text"} />
+          </form>
+        </div>
+        <div className={styles.emojiTableHeader}>
+          <div>NAME</div>
+          <div>IMAGE</div>
+        </div>
       </div>
-      <div className={styles.emojiTableHeader}>
-        <div>NAME</div>
-        <div>IMAGE</div>
-      </div>
-      {isFetching ? (
+      {filterEmoji.length <= 1 ? (
         <Spinner />
       ) : (
         <div className={styles.emojiContainer}>

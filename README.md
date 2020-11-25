@@ -10,12 +10,10 @@ This boilerplate uses the following technologies:
 
 1.  [ReactJS](https://reactjs.org/)
 2.  [ReactHooks](https://reactjs.org/docs/hooks-intro.html)
-3.  [Redux](https://redux.js.org/)
-4.  [Redux-Typescript](https://github.com/piotrwitek/react-redux-typescript-guide)
-5.  [Typescript](https://www.typescriptlang.org/)
-6.  [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-7.  **HTML/SCSS**
-8.  [Webpack](https://webpack.js.org/)
+3.  [Typescript](https://www.typescriptlang.org/)
+4.  [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+5.  **HTML/SCSS**
+6.  [Webpack](https://webpack.js.org/)
 
 ## Additional Structure
 
