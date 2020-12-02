@@ -1,3 +1,6 @@
+// NOTE:
+// Below are just the sample implementation of menu items and routes redirection.
+// Kindly update below based on your requirements.
 import React, { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import assets from "assets";
@@ -25,7 +28,11 @@ const Header: React.FC = () => {
   ) => {
     setIsMenuToggle(false);
     const key = e.currentTarget.id;
-    history.push(`/${key}`);
+
+    // NOTE:
+    // Project was test deployed in github hosting that's why route path has '/jc-react-boilerplate' for proper deployment
+    // Kindly update below route implementation based on your own component routings
+    history.push(`/jc-react-boilerplate/${key}`);
   };
 
   return (

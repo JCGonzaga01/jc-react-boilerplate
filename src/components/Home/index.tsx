@@ -1,3 +1,5 @@
+// NOTE:
+// This is just a sample component implementation
 import React from "react";
 import { bannerDetails } from "constants/home";
 import banner from "assets/banner.jpg";

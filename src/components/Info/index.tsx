@@ -1,3 +1,6 @@
+// NOTE:
+// This is just a sample components with redux implemetation
+// You can either remove this or use this as your basis for your component redux implementation
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // REDUX

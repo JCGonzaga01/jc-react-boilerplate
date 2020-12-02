@@ -1,3 +1,6 @@
+// NOTE:
+// This is just a dummy fetch api to test the middlewares of redux
+// You can either remove it or use it as your reference in creating your own api middleware
 import { DummyList } from "DummyType";
 
 export function fetchDummyData(): Promise<DummyList> {
