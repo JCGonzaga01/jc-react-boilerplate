@@ -14,130 +14,105 @@
 
   flex-direction: column;
   padding: 80px 20px;
+  min-height: 100vh;
   width: 100vw;
 
-  .banner {
-    @include align-center;
-    flex-direction: column;
-    height: 50vh;
+  .container {
+    padding-top: 80px;
     width: 100%;
 
-    .title {
-      border-bottom: 1px solid $textScrolled;
-      border-top: 1px solid $textScrolled;
-      color: white;
-      font-size: 44px;
-      letter-spacing: 2px;
-      line-height: 50px;
-      padding: 20px;
-      margin-bottom: 30px;
+    .tableTitle {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      color: $textDefault;
+      font-size: 30px;
+      margin-bottom: 20px;
+      padding: 10px 0;
       text-align: center;
-      text-shadow: 3px 0px $textScrolled;
-      text-transform: uppercase;
-      width: fit-content;
+      width: 100%;
     }
 
-    .description {
-      color: white;
-      font-family: "Poppins";
-      font-size: 22px;
-      letter-spacing: 1px;
-      text-align: center;
-      text-shadow: 1px 1px 1px #006eff, 3px 1px 5px $textScrolled;
-    }
-  }
-
-  .tableTitle {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    color: $textDefault;
-    font-size: 30px;
-    margin-bottom: 20px;
-    padding: 10px 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  .tableHeader {
-    position: sticky;
-    top: 80px;
-    width: 100%;
-
-    .search {
-      align-items: center;
-      background: $textDefault;
-      display: flex;
-      flex-direction: row-reverse;
-      padding: 10px 5px;
+    .tableHeader {
+      position: sticky;
+      top: 80px;
       width: 100%;
 
-      .searchField {
-        height: 24px;
-        margin-left: 20px;
+      .search {
+        align-items: center;
+        background: $textDefault;
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 10px 5px;
+        width: 100%;
+
+        .searchField {
+          height: 24px;
+          margin-left: 20px;
+        }
+
+        .searchBtn {
+          border: 1px solid $textDefault;
+          background-color: $textScrolled;
+          color: $textDefault;
+          border-radius: 3px;
+          padding: 5px;
+
+          &:hover {
+            border: 1px solid $textScrolled;
+            background-color: $textDefault;
+            color: $textScrolled;
+          }
+        }
       }
 
-      .searchBtn {
-        border: 1px solid $textDefault;
-        background-color: $textScrolled;
-        color: $textDefault;
-        border-radius: 3px;
-        padding: 5px;
+      .emojiTableHeader {
+        @include align-center;
+        background-color: $textDefault;
+        border-bottom: 5px solid $textScrolled;
+        border-top: 5px solid $textScrolled;
+        padding: 10px 0;
+        width: 100%;
 
-        &:hover {
-          border: 1px solid $textScrolled;
-          background-color: $textDefault;
-          color: $textScrolled;
+        & > :first-child {
+          border-right: 2px solid $textScrolled;
+        }
+
+        & > div {
+          font-size: 22px;
+          text-align: center;
+          width: 100%;
         }
       }
     }
 
-    .emojiTableHeader {
-      @include align-center;
+    .emojiContainer {
       background-color: $textDefault;
-      border-bottom: 5px solid $textScrolled;
-      border-top: 5px solid $textScrolled;
-      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      max-height: 70vh;
+      overflow: scroll;
       width: 100%;
 
-      & > :first-child {
-        border-right: 2px solid $textScrolled;
-      }
-
-      & > div {
-        font-size: 22px;
-        text-align: center;
-        width: 100%;
-      }
-    }
-  }
-
-  .emojiContainer {
-    background-color: $textDefault;
-    display: flex;
-    flex-direction: column;
-    max-height: 70vh;
-    overflow: scroll;
-    width: 100%;
-
-    .emoji {
-      @include align-center;
-
-      & > :first-child {
-        border-right: 2px solid $textScrolled;
-      }
-
-      & > div {
+      .emoji {
         @include align-center;
-        border-bottom: 1px solid $textScrolled;
-        height: 25px;
-        padding: 20px 0;
-        text-align: center;
-        width: 100%;
-      }
 
-      img {
-        height: 25px;
-        width: 25px;
+        & > :first-child {
+          border-right: 2px solid $textScrolled;
+        }
+
+        & > div {
+          @include align-center;
+          border-bottom: 1px solid $textScrolled;
+          height: 25px;
+          padding: 20px 0;
+          text-align: center;
+          width: 100%;
+        }
+
+        img {
+          height: 25px;
+          width: 25px;
+        }
       }
     }
   }

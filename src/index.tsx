@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "store";
 //
-import App from "components/App";
+import RenderRouter from "./router";
 import { Spinner } from "components/_common";
 import "./index.scss";
 
@@ -12,7 +12,7 @@ const app = (
   <React.StrictMode>
     <Provider store={store}>
       <Suspense fallback={<Spinner />}>
-        <App />
+        <RenderRouter />
       </Suspense>
     </Provider>
   </React.StrictMode>

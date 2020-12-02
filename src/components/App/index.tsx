@@ -4,11 +4,11 @@ import Info from "components/Info";
 import Footer from "components/Footer";
 import styles from "./App.scss";
 
-const App: React.FC = () => {
+const App: React.FC = ({children}) => {
   return (
     <div className={styles.wrapper}>
       <Header />
-      <Info />
+      {children}
       <Footer />
     </div>
   );

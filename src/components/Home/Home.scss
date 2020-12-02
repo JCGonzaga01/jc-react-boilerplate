@@ -1,0 +1,49 @@
+@import "helpers/stylings/_index";
+
+// NOTE:
+// 1. Adding those custom mixin: media-query() are usefull for specifying the padding of component per viewport sizes
+.wrapper {
+  @include align-center;
+  @include media-query(pc) {
+    padding: 80px 100px;
+  }
+
+  @include media-query(tl) {
+    padding: 80px 60px;
+  }
+
+  flex-direction: column;
+  padding: 80px 20px;
+  min-height: 100vh;
+  width: 100vw;
+
+  .banner {
+    @include align-center;
+    flex-direction: column;
+    width: 100%;
+
+    .title {
+      border-bottom: 1px solid $textScrolled;
+      border-top: 1px solid $textScrolled;
+      color: white;
+      font-size: 44px;
+      letter-spacing: 2px;
+      line-height: 50px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 3px 0px $textScrolled;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .description {
+      color: white;
+      font-family: "Poppins";
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 1px 1px 1px #006eff, 3px 1px 5px $textScrolled;
+    }
+  }
+}

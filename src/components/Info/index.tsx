@@ -5,7 +5,6 @@ import { fetchDummyAsync } from "store/actions/dummy";
 import { dummy } from "store/selectors/dummy";
 //
 import { Spinner } from "components/_common";
-import { bannerDetails } from "constants/info";
 import banner from "assets/banner.jpg";
 import styles from "./Info.scss";
 
@@ -16,10 +15,7 @@ const Info: React.FC = () => {
   const [filterEmoji, setFilterEmoji] = useState(payload);
 
   useEffect(() => {
-    dispatch(fetchDummyAsync.request());
-  }, []);
-
-  useEffect(() => {
+    if (!payload.length) dispatch(fetchDummyAsync.request());
     setFilterEmoji(payload);
   }, [payload]);
 
@@ -40,40 +36,42 @@ const Info: React.FC = () => {
         background: `url(${banner}) center center / cover no-repeat fixed`,
       }}
     >
-      <div className={styles.banner}>
-        <div className={styles.title}>{bannerDetails.title}</div>
-        <div className={styles.description}>{bannerDetails.description}</div>
-      </div>
-      <div className={styles.tableTitle}>Example of Redux Implementation</div>
+      <div className={styles.container}>
+        <div className={styles.tableTitle}>Example of Redux Implementation</div>
 
-      <div className={styles.tableHeader}>
-        <div className={styles.search}>
-          <form ref={formRef} onSubmit={handleOnClickSearch}>
-            <button className={styles.searchBtn} type={"submit"}>
-              SEARCH
-            </button>
-            <input className={styles.searchField} name={"searchField"} type={"text"} />
-          </form>
+        <div className={styles.tableHeader}>
+          <div className={styles.search}>
+            <form ref={formRef} onSubmit={handleOnClickSearch}>
+              <button className={styles.searchBtn} type={"submit"}>
+                SEARCH
+              </button>
+              <input
+                className={styles.searchField}
+                name={"searchField"}
+                type={"text"}
+              />
+            </form>
+          </div>
+          <div className={styles.emojiTableHeader}>
+            <div>NAME</div>
+            <div>IMAGE</div>
+          </div>
         </div>
-        <div className={styles.emojiTableHeader}>
-          <div>NAME</div>
-          <div>IMAGE</div>
-        </div>
-      </div>
-      {isFetching ? (
-        <Spinner />
-      ) : (
-        <div className={styles.emojiContainer}>
-          {filterEmoji.map((item, idx) => (
-            <div key={`${idx}-${item.key}`} className={styles.emoji}>
-              <div>{item.key}</div>
-              <div>
-                <img src={item.value} alt={item.key} />
+        {isFetching ? (
+          <Spinner />
+        ) : (
+          <div className={styles.emojiContainer}>
+            {filterEmoji.map((item, idx) => (
+              <div key={`${idx}-${item.key}`} className={styles.emoji}>
+                <div>{item.key}</div>
+                <div>
+                  <img src={item.value} alt={item.key} />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
