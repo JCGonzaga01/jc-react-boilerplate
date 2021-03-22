@@ -68,7 +68,15 @@ var config = {
         test: /\.s[ac]ss$/i,
         use: [
           { loader: "style-loader" },
-          { loader: "css-loader", options: { modules: true } },
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[local]___[hash:base64:5]",
+              },
+              sourceMap: true,
+            },
+          },
           { loader: "sass-loader" },
         ],
       },
